@@ -1,0 +1,15 @@
+@(message: String)
+
+@main("Welcome to Swim Club Manager") {
+
+<form action="@routes.MyApplication.createSwimmer()" method="post">
+    <input type="text" name="name" />
+    <input type="text" name="age" />
+    <button>Add Swimmer</button>
+</form>
+
+<form action="@routes.MyApplication.displayAllSwimmers()" method="post">
+    <input type="text" name="display" />
+    <button>Display all swimmers</button>
+</form>
+}
