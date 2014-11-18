@@ -15,15 +15,15 @@ import static play.libs.Json.*;
 public class MyApplication extends Controller {
 
     // show example of passing in an argument to a view example.scala.html
-    public static Result index(){
-       // List<String> names = Arrays.asList("Michael", "John", "Someone");
-        List<String> names = Arrays.asList();
-        return ok(example.render("Welcome to Swim Club Manager", names));
-    }
-
    // public static Result index(){
-    //    return ok(index.render("Welcome to Swim Club Manager"));
-    //}
+       // List<String> names = Arrays.asList("Michael", "John", "Someone");
+     //   List<String> names = Arrays.asList();
+     //   return ok(example.render("Welcome to Swim Club Manager", names));
+   // }
+
+    public static Result index(){
+        return ok(index.render("Welcome to Swim Club Manager"));
+    }
 
     public static Result createSwimmer(){
         // I want to take parameters from the form
@@ -44,8 +44,14 @@ public class MyApplication extends Controller {
         return redirect(routes.MyApplication.index()); // instead of hard coding the url Im using routes.Application.index()
     }
 
+    public static Result displayAllSwimmersAsJSon(){
+        List<Swimmer> swimmers = new Model.Finder(String.class, Swimmer.class).all();
+         return ok(toJson(swimmers));
+    }
+
     public static Result displayAllSwimmers(){
-        return TODO;
+        List<Swimmer> swimmers = Swimmer.find.all();
+        return ok(swimmerForm.render(swimmers));
     }
 
     public static Result editSwimmer(Long id){

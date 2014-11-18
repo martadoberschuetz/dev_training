@@ -21,7 +21,7 @@ POST    /swimmer                controllers.MyApplication.createSwimmer()
 GET     /swimmer/:id            controllers.MyApplication.editSwimmer(id: Long)
 POST    /swimmer/:id            controllers.MyApplication.updateSwimmer(id: Long)
 POST    /swimmer/:id/delete     controllers.MyApplication.deleteSwimmer(id: Long)
-GET     /swimmer/all            controllers.MyApplication.displayAllSwimmers()
+GET     /swimmers               controllers.MyApplication.displayAllSwimmers()
 
 
 

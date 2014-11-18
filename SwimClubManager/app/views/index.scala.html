@@ -8,8 +8,12 @@
     <button>Add Swimmer</button>
 </form>
 
-<form action="@routes.MyApplication.displayAllSwimmers()" method="post">
-    <input type="text" name="display" />
+<form action="@routes.MyApplication.displayAllSwimmers()" method="get">
     <button>Display all swimmers</button>
+
+    <h1>Swimmers:</h1>
+    <ul>
+       @swimmerForm
+    </ul>
 </form>
 }

@@ -4,9 +4,9 @@
 # --- !Ups
 
 create table swimmer (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   name                      varchar(255),
-  age                       integer,
+  age                       bigint,
   constraint pk_swimmer primary key (id))
 ;
 
