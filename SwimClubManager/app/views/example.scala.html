@@ -1,0 +1,21 @@
+@(message: String, names: List[String])
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the Swim Club</title>
+    </head>
+<body>
+    <h1>@message</h1>
+
+        @if(names.isEmpty()){
+            <h3>There are no swimmers in the club</h3>
+        }else{
+        <ul>
+            @for(name <- names){
+            <li>@name</li>
+            }
+        </ul>
+        }
+</body>
+</html>

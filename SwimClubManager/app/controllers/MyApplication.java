@@ -7,18 +7,23 @@ import play.mvc.*;
 import views.html.*;
 import models.Swimmer;
 import play.data.Form;
+import java.util.Arrays;
 import java.util.List;
 import play.db.ebean.Model;
 import static play.libs.Json.*;
 
-/**
- * Created by Marta on 16/11/14.
- */
 public class MyApplication extends Controller {
 
+    // show example of passing in an argument to a view example.scala.html
     public static Result index(){
-        return ok(index.render("Welcome to Swim Club Manager"));
+       // List<String> names = Arrays.asList("Michael", "John", "Someone");
+        List<String> names = Arrays.asList();
+        return ok(example.render("Welcome to Swim Club Manager", names));
     }
+
+   // public static Result index(){
+    //    return ok(index.render("Welcome to Swim Club Manager"));
+    //}
 
     public static Result createSwimmer(){
         // I want to take parameters from the form
@@ -37,10 +42,6 @@ public class MyApplication extends Controller {
 
         swimmer.save(); // saves it to the database
         return redirect(routes.MyApplication.index()); // instead of hard coding the url Im using routes.Application.index()
-        // all the routing info in Play can be type safe
-
-
-
     }
 
     public static Result displayAllSwimmers(){
