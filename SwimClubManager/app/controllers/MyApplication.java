@@ -14,7 +14,7 @@ import static play.libs.Json.*;
 
 public class MyApplication extends Controller {
 
-    // show example of passing in an argument to a view example.scala.html
+    // shows example of passing in an argument to a view example.scala.html
    // public static Result index(){
        // List<String> names = Arrays.asList("Michael", "John", "Someone");
      //   List<String> names = Arrays.asList();
@@ -26,11 +26,6 @@ public class MyApplication extends Controller {
     }
 
     public static Result createSwimmer(){
-        // I want to take parameters from the form
-        // in the request
-        // and pull them into the object MyApplication
-        // save to the database
-        // then redirect to the main page
 
         Swimmer swimmer = Form.form(Swimmer.class).bindFromRequest().get();
         // a utility in Play call Form
@@ -41,7 +36,7 @@ public class MyApplication extends Controller {
         // get() means get that MyApplication object
 
         swimmer.save(); // saves it to the database
-        return redirect(routes.MyApplication.index()); // instead of hard coding the url Im using routes.Application.index()
+        return redirect(routes.MyApplication.index());
     }
 
     public static Result displayAllSwimmersAsJSon(){
